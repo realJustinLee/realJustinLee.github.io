@@ -45,7 +45,7 @@
     
     <title>
         
-            标签: THU-DS | 
+            一个完整的编译器前端(Java 实现) | 
         
         装逼宝典
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="一个少年的装逼经验大分享">
-    <meta name="keywords" content="装逼宝典,李欣,李欣的技术博客">
+    <meta name="keywords" content="装逼宝典,李欣,李欣的技术博客,Complier, Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -217,7 +217,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="装逼宝典">
-    <meta name="msapplication-starturl" content="http://Great-Li-Xin.github.io/tags/THU-DS/">
+    <meta name="msapplication-starturl" content="http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="装逼宝典">
@@ -232,13 +232,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://Great-Li-Xin.github.io/tags/THU-DS/">
+    <meta property="og:url" content="http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: THU-DS | 装逼宝典">
+    <meta property="og:title" content="一个完整的编译器前端(Java 实现) | 装逼宝典">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="一个少年的装逼经验大分享">
-    
+    <meta property="og:article:tag" content="Complier, Java"> 
 
+    
+        <meta property="article:published_time" content="Tue Apr 17 2018 18:41:49 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 17 2018 18:49:20 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -246,13 +249,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://Great-Li-Xin.github.io/tags/THU-DS/index.html" />
+        <link rel="canonical" href="http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html",
+    "headline": "一个完整的编译器前端(Java 实现)",
+    "datePublished": "Tue Apr 17 2018 18:41:49 GMT+0800",
+    "dateModified": "Tue Apr 17 2018 18:49:20 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "李欣",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "与君初相识，犹如故人归"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "装逼宝典",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Complier, Java装逼宝典,李欣,李欣的技术博客",
+    "description": "一个少年的装逼经验大分享",
+}
+</script>
 
 
     
@@ -286,149 +319,513 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#LiXinCompiler"><span class="post-toc-number">1.</span> <span class="post-toc-text">LiXinCompiler</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GitHub链接"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">GitHub链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#博客文章链接"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">博客文章链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源语言"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">源语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试样例"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">测试样例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#block"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">block:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#expression"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">expression:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#identity"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">identity:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jump"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">jump:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#program"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">program:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#关于BUG、建议与意见"><span class="post-toc-number">2.</span> <span class="post-toc-text">关于BUG、建议与意见</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/06/23/THU-DS-2/">C++ 17 中，支持for循环的4种用法</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/06/23/THU-DS-2/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="李欣's avatar">
-            </div>
-            <div>
-                <strong>李欣</strong>
-                <span>6月 23, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/06/23/THU-DS-1/">关于 glibc 中的内置函数 int__bulitin_popcount (unsigned int n) 的实现</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/06/23/THU-DS-1/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="李欣's avatar">
-            </div>
-            <div>
-                <strong>李欣</strong>
-                <span>6月 23, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                一个完整的编译器前端(Java 实现)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>李欣</strong>
+        <span>4月 17, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1klEQVR42u3a0W7jMAwEwPz/T9+9HlDEWZJyz5HGT0Xj2BoV6IKkXn+OvF7Y2NjY2NjY2NjYj2S/4uvf+39+992n797ycw35t6prxsbGxj6B/eFf/+U9ky179/zkjdU1Y2NjY5/ATpZ7/eI8ovK3LHsaNjY2NvblUpLSIsFM1oONjY2NvbaEWNuQekSAYWNjYz+efUcg5RFVLT9+tZeGjY2N/Xj22hb/7/z8n+fb2NjY2I9hV6/k9cmn1TZTElofVo6NjY29Kft6KTkgHxtUeXl0LajAsLGxsb+WXS08eluWb1C+ofmTsbGxsfdm5239Vcd38nb//EgoNjY29gnsfDCQj2+rRUh1C27JbWxsbOwvZFcLkjxmesc6qwc6C80pbGxs7K3ZvQZTDssLnuqgN29RYWNjY+/KToKq9/v7YPm4FxsbG/sE9igSggDrPaE6YGg2lbCxsbE3YlfDYxJLkyM4o5EzNjY29qbsCTiJpbyo6IViXpBgY2Nj782ej2nzsmFV66p8DzY2Nvam7ElDp9e47x33rB4bwsbGxj6HPR8DTBaUFxuTt2NjY2PvzZ4PXHuj4klhkw8nsLGxsU9gvxZdvUZStb3VGwxgY2Nj783OQ6UHTkqOvBTBxsbGxs7HA5PQyo/s5JuSPwEbGxv7NHav1T6Jn+oBoHxTylMRbGxs7C3Y1eZONYQmB3eqBQ82NjY2dr7QaphVj+P0grPZS8PGxsb+cnYeSPMSIo+xXpR+WBU2Njb2puxJCylv1uebdR1vSQQ2cxsbGxv7a9l3tHWqI9tkRNEbLWNjY2Ofw05Ca1LA5KPl6nGcwsZhY2NjH8Ceh1bv/vz3eRMKGxsbG7tXcqw60DMfQkdTEWxsbOyD2ZNv9Y7v5GOAclMJGxsbeyN2tak0KR6q4Zdvze29NGxsbOxHspcdcGwVIdU/Q7VQwcbGxt6bfc6FjY2NjY2NjY2N/ZjrL4qouczMpczAAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Complier-Java/">Complier, Java</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=一个完整的编译器前端(Java 实现)&url=http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html&pic=http://Great-Li-Xin.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=一个完整的编译器前端(Java 实现)&url=http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html&via=李欣" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html&title=一个完整的编译器前端(Java 实现)" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=装逼宝典&title=一个完整的编译器前端(Java 实现)&summary=一个少年的装逼经验大分享&pics=http://Great-Li-Xin.github.io/img/favicon.png&url=http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html&text=一个完整的编译器前端(Java 实现)" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="LiXinCompiler"><a href="#LiXinCompiler" class="headerlink" title="LiXinCompiler"></a>LiXinCompiler</h1><p>Referenced from the dragon-book, just a little implementation of the dragon-book language.</p>
+<p>参考自龙书上的语言，自己实现了一个编译器的前端。</p>
+<h2 id="GitHub链接"><a href="#GitHub链接" class="headerlink" title="GitHub链接"></a>GitHub链接</h2><ul>
+<li><a href="https://github.com/Great-Li-Xin/LiXinCompiler" target="_blank" rel="noopener">LiXinCompiler</a><h2 id="博客文章链接"><a href="#博客文章链接" class="headerlink" title="博客文章链接"></a>博客文章链接</h2></li>
+<li><a href="https://great-li-xin.github.io/2018/04/17/LiXinCompiler/">一个完整的编译器前端(Java 实现)</a></li>
+</ul>
+<h2 id="源语言"><a href="#源语言" class="headerlink" title="源语言"></a>源语言</h2><p>这个语言由一个程序和一个块组成，该块中包含可选的声名和语句。语法符号<code>basic</code>表示基本类型。</p>
+<pre><code>program     -&gt;  block
+block       -&gt;  { declause statemets }
+declause    -&gt;  decaluse debracket | ϵ
+debrcket    -&gt;  type identity ;
+type        -&gt;  type [ num ] | basic
+statements  -&gt;  statements statement | ϵ
+</code></pre><p>为了简化翻译工作，我们把赋值当成了一个语句.</p>
+<pre><code>statement   -&gt;  location = bool ;
+            |   if ( bool ) statement
+            |   if ( bool ) stetement else statement
+            |   while ( bool ) statement
+            |   do statement while ( bool ) ;
+            |   break ;
+            |   block
+location    -&gt;  location [ bool ] | identity
+</code></pre><p>表达式的产生式处理了运算符的结合性和优先级。它们对每个优先级都使用了一个非终结符号，而非终结符号<code>factor</code>用来表示括号中的表达式、标识符、数组引用和常量.</p>
+<pre><code>bool        -&gt;  bool || join | join
+join        -&gt;  join &amp;&amp; equality | equality
+equality    -&gt;  equality == relation | equality != relation | relation
+relation    -&gt;  expression &lt; expression | expressoion &lt;= expression |
+                expressoion &gt;= expression | expressoion &gt; expression | expression
+expression  -&gt;  expression + term | expression - term | term
+term        -&gt;  term * unary | term / unary | unary
+factor      -&gt;  ( bool ) | location | numeric | real | true | false
+</code></pre><h2 id="测试样例"><a href="#测试样例" class="headerlink" title="测试样例"></a>测试样例</h2><h3 id="block"><a href="#block" class="headerlink" title="block:"></a>block:</h3><p>输入</p>
+<pre><code>lxc&gt;
+{
+    int a; int b; a = 0; b = 0;
+    {
+        int b; b = 1;
+        {
+            int a; a = 2;
+        }
+        {
+            int b; b = 3;
+        }
+        a = a + 1; b = b + 1;
+    }
+    a = a + 1; b = b + 1;
+}
+</code></pre><p>输出</p>
+<pre><code>L1:    a = 0
+L3:    b = 0
+L4:    b = 1
+L6:    a = 2
+L7:    b = 3
+L8:    a = a + 1
+L9:    b = b + 1
+L5:    a = a + 1
+L10:    b = b + 1
+L2:
+</code></pre><h3 id="expression"><a href="#expression" class="headerlink" title="expression:"></a>expression:</h3><p>输入</p>
+<pre><code>lxc&gt;
+{
+    int i; float x; bool b;
+    i = 0;
+    i = 365;
+    x = 0.0;
+    x = 3.14159;
+    b = true;
+    b = false;
+    i = x;
+    x = i;
+}
+</code></pre><p>输出</p>
+<pre><code>L1:    i = 0
+L3:    i = 365
+L4:    x = 0.0
+L5:    x = 3.1415896
+L6:    b = true
+L7:    b = false
+L8:    i = x
+L9:    x = i
+L2:
+</code></pre><h3 id="identity"><a href="#identity" class="headerlink" title="identity:"></a>identity:</h3><p>输入</p>
+<pre><code>lxc&gt;
+{
+    int i; int j; float[10][10] a;
+    i = 0;
+    while ( i &lt; 10 ) {
+        j = 0;
+        while ( j &lt; 10 ) {
+            a[i][j] = 0.0;
+            j = j + 1;
+        }
+        i = i + 1;
+    }
+    i = 0;
+    while ( i &lt; 10 ) {
+        a[i][i] = 1.0;
+        i = i + 1;
+    }
+}
+</code></pre><p>输出</p>
+<pre><code>L1:    i = 0
+L3:    if not i &lt; 10 goto L4
+L5:    j = 0
+L6:    if not j &lt; 10 goto L7
+L8:    t1=i * 80
+    t2=j * 8
+    t3=t1 + t2
+    a [ t3 ] = 0.0
+L9:    j = j + 1
+    goto L6
+L7:    i = i + 1
+    goto L3
+L4:    i = 0
+L10:    if not i &lt; 10 goto L2
+L11:    t4=i * 80
+    t5=i * 8
+    t6=t4 + t5
+    a [ t6 ] = 1.0
+L12:    i = i + 1
+    goto L10
+L2:
+</code></pre><h3 id="jump"><a href="#jump" class="headerlink" title="jump:"></a>jump:</h3><p>输入</p>
+<pre><code>lxc&gt;
+{
+    int x; int y; int a; int b;
+    if( true ) a = 0;
+    if( false ) x = 0;
+    if ( a &lt; b ) a = b;
+    if ( x &lt;= y ) x = y;
+    if ( a == b ) a = b;
+    if ( x != y ) x = y;
+    if ( a &gt;= b ) b = a;
+    if ( x &gt; y ) y = x;
+    if ( a == b );
+    if( x &lt; 100 || x &gt; 200 ) x = 0;
+    if( a &lt; 100 &amp;&amp; a &gt; 200 ) b = 0;
+    if( x &lt; 100 || (x &gt; 200 &amp;&amp; x != y) ) x = 0;
+    if( a &lt; 100 || (a &gt; 200 &amp;&amp; a != 150) || a != 0 ) a = 0;
+    if( x &gt; 200 &amp;&amp; x != b || x &lt; 100 ) x = 0;
+    if( a &lt; 100 || a &gt; 200 &amp;&amp; a != b ) a = 0;
+}
+</code></pre><p>输出</p>
+<pre><code>L1:L4:    a = 0
+L3:    goto L5
+L6:    x = 0
+L5:    if not a &lt; b goto L7
+L8:    a = b
+L7:    if not x &lt;= y goto L9
+L10:    x = y
+L9:    if not a == b goto L11
+L12:    a = b
+L11:    if not x != y goto L13
+L14:    x = y
+L13:    if not a &gt;= b goto L15
+L16:    b = a
+L15:    if not x &gt; y goto L17
+L18:    y = x
+L17:    if not a == b goto L19
+L20:L19:    if x &lt; 100 goto L23
+    if not x &gt; 200 goto L21
+L23:L22:    x = 0
+L21:    if not a &lt; 100 goto L24
+    if not a &gt; 200 goto L24
+L25:    b = 0
+L24:    if x &lt; 100 goto L28
+    if not x &gt; 200 goto L26
+    if not x != y goto L26
+L28:L27:    x = 0
+L26:    if a &lt; 100 goto L31
+    if a != 150 goto L31
+L32:    if not a != 0 goto L29
+L31:L30:    a = 0
+L29:    if x != b goto L35
+L36:    if not x &lt; 100 goto L33
+L35:L34:    x = 0
+L33:    if a &lt; 100 goto L38
+    if not a &gt; 200 goto L2
+    if not a != b goto L2
+L38:L37:    a = 0
+L2:
+</code></pre><h3 id="program"><a href="#program" class="headerlink" title="program:"></a>program:</h3><p>输入</p>
+<pre><code>lxc&gt;
+{
+    int i; int j; float v; float x; float[100] a;
+    while( true ) {
+        do i = i+1; while( a[i] &lt; v);
+        do j = j-1; while( a[j] &gt; v);
+        if( i &gt;= j ) break;
+        x = a[i]; a[i] = a[j]; a[j] = x;
+    }
+}
+</code></pre><p>输出</p>
+<pre><code>L1:L3:    i = i + 1
+L5:    t1=i * 8
+    t2=a [ t1 ]
+    if t2 &lt; v goto L3
+L4:    j = j - 1
+L7:    t3=j * 8
+    t4=a [ t3 ]
+    if t4 &gt; v goto L4
+L6:    if not i &gt;= j goto L8
+L9:    goto L2
+L8:    t5=i * 8
+    x = a [ t5 ]
+L10:    t6=i * 8
+    t7=j * 8
+    t8=a [ t7 ]
+    a [ t6 ] = t8
+L11:    t9=j * 8
+    a [ t9 ] = x
+    goto L1
+L2:
+</code></pre><h1 id="关于BUG、建议与意见"><a href="#关于BUG、建议与意见" class="headerlink" title="关于BUG、建议与意见"></a>关于BUG、建议与意见</h1><p>请在<a href="https://github.com/Great-Li-Xin/LiXinCompiler" target="_blank" rel="noopener">GitHub</a>中提<a href="https://github.com/Great-Li-Xin/LiXinCompiler/issues/new" target="_blank" rel="noopener">issue</a></p>
+<p>我会尽快回答</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            This blog is under a <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 Unported License</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/">http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '20d325124bf8bd20a06e',
+            clientSecret: 'b06a4bc2cfc447b1f2c79fe1e9b9ecd34dfae261',
+            repo: 'https://github.com/Great-Li-Xin/Great-Li-Xin.github.io.git',
+            owner: 'https://github.com/Great-Li-Xin',
+            admin: ['https://github.com/Great-Li-Xin'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/01/30/Dumb-Chatbot/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -628,6 +1025,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
