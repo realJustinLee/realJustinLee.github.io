@@ -241,7 +241,7 @@
 
     
         <meta property="article:published_time" content="Tue Apr 17 2018 18:41:49 GMT+0800">
-        <meta property="article:modified_time" content="Tue Apr 17 2018 18:51:42 GMT+0800">
+        <meta property="article:modified_time" content="Tue May 29 2018 15:15:35 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -264,7 +264,7 @@
     "mainEntityOfPage": "http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html",
     "headline": "一个完整的编译器前端(Java 实现)",
     "datePublished": "Tue Apr 17 2018 18:41:49 GMT+0800",
-    "dateModified": "Tue Apr 17 2018 18:51:42 GMT+0800",
+    "dateModified": "Tue May 29 2018 15:15:35 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "李欣",
@@ -640,9 +640,9 @@ L2:
 L3:    if not i &lt; 10 goto L4
 L5:    j = 0
 L6:    if not j &lt; 10 goto L7
-L8:    t1=i * 80
-    t2=j * 8
-    t3=t1 + t2
+L8:    t1 = i * 80
+    t2 = j * 8
+    t3 = t1 + t2
     a [ t3 ] = 0.0
 L9:    j = j + 1
     goto L6
@@ -650,9 +650,9 @@ L7:    i = i + 1
     goto L3
 L4:    i = 0
 L10:    if not i &lt; 10 goto L2
-L11:    t4=i * 80
-    t5=i * 8
-    t6=t4 + t5
+L11:    t4 = i * 80
+    t5 = i * 8
+    t6 = t4 + t5
     a [ t6 ] = 1.0
 L12:    i = i + 1
     goto L10
@@ -729,22 +729,22 @@ L2:
 }
 </code></pre><p>输出</p>
 <pre><code>L1:L3:    i = i + 1
-L5:    t1=i * 8
-    t2=a [ t1 ]
+L5:    t1 = i * 8
+    t2 = a [ t1 ]
     if t2 &lt; v goto L3
 L4:    j = j - 1
-L7:    t3=j * 8
-    t4=a [ t3 ]
+L7:    t3 = j * 8
+    t4 = a [ t3 ]
     if t4 &gt; v goto L4
 L6:    if not i &gt;= j goto L8
 L9:    goto L2
-L8:    t5=i * 8
+L8:    t5 = i * 8
     x = a [ t5 ]
-L10:    t6=i * 8
-    t7=j * 8
-    t8=a [ t7 ]
+L10:    t6 = i * 8
+    t7 = j * 8
+    t8 = a [ t7 ]
     a [ t6 ] = t8
-L11:    t9=j * 8
+L11:    t9 = j * 8
     a [ t9 ] = x
     goto L1
 L2:
