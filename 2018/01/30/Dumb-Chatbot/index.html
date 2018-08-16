@@ -86,6 +86,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/atelier-dune-dark.min.css?Sq+/jscLQsK3lkqis0e/aA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -244,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Tue Jan 30 2018 12:26:10 GMT+0800">
-        <meta property="article:modified_time" content="Thu Aug 16 2018 17:46:40 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 16 2018 19:13:45 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -267,7 +272,7 @@
     "mainEntityOfPage": "http://Great-Li-Xin.github.io/2018/01/30/Dumb-Chatbot/index.html",
     "headline": "DUMB 聊天机器人",
     "datePublished": "Tue Jan 30 2018 12:26:10 GMT+0800",
-    "dateModified": "Thu Aug 16 2018 17:46:40 GMT+0800",
+    "dateModified": "Thu Aug 16 2018 19:13:45 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "李欣",
@@ -559,7 +564,7 @@
 <h3 id="测试和运行"><a href="#测试和运行" class="headerlink" title="测试和运行"></a>测试和运行</h3><pre><code>python chatbot.py
 </code></pre><h4 id="测试样例"><a href="#测试样例" class="headerlink" title="测试样例"></a>测试样例</h4><pre><code>&gt; hi .
 bot: hi .
-&gt; what&#39;s your name ?
+&gt; what is your name ?
 bot: vector frankenstein .
 &gt; how are you ?
 bot: fine .
@@ -1019,10 +1024,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
-    
-        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
-    
 
 
 <!-- Window Load -->
@@ -1034,10 +1041,13 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
-        
-        
-        HanabiBrowser.start('pre code',true);
     
 </script>
 
