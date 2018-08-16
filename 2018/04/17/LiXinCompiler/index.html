@@ -244,7 +244,7 @@
 
     
         <meta property="article:published_time" content="Tue Apr 17 2018 18:41:49 GMT+0800">
-        <meta property="article:modified_time" content="Wed Aug 15 2018 17:21:03 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 16 2018 18:00:20 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -267,7 +267,7 @@
     "mainEntityOfPage": "http://Great-Li-Xin.github.io/2018/04/17/LiXinCompiler/index.html",
     "headline": "一个完整的编译器前端(Java 实现)",
     "datePublished": "Tue Apr 17 2018 18:41:49 GMT+0800",
-    "dateModified": "Wed Aug 15 2018 17:21:03 GMT+0800",
+    "dateModified": "Thu Aug 16 2018 18:00:20 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "李欣",
@@ -570,7 +570,7 @@ expression  -&gt;  expression + term | expression - term | term
 term        -&gt;  term * unary | term / unary | unary
 factor      -&gt;  ( bool ) | location | numeric | real | true | false
 </code></pre><h2 id="测试样例"><a href="#测试样例" class="headerlink" title="测试样例"></a>测试样例</h2><h3 id="block"><a href="#block" class="headerlink" title="block:"></a>block:</h3><p>输入</p>
-<pre><code>lxc&gt;
+<pre><code class="C++">lxc&gt;
 {
     int a; int b; a = 0; b = 0;
     {
@@ -585,8 +585,9 @@ factor      -&gt;  ( bool ) | location | numeric | real | true | false
     }
     a = a + 1; b = b + 1;
 }
-</code></pre><p>输出</p>
-<pre><code>L1:    a = 0
+</code></pre>
+<p>输出</p>
+<pre><code class="C++">L1:    a = 0
 L3:    b = 0
 L4:    b = 1
 L6:    a = 2
@@ -596,8 +597,9 @@ L9:    b = b + 1
 L5:    a = a + 1
 L10:    b = b + 1
 L2:
-</code></pre><h3 id="expression"><a href="#expression" class="headerlink" title="expression:"></a>expression:</h3><p>输入</p>
-<pre><code>lxc&gt;
+</code></pre>
+<h3 id="expression"><a href="#expression" class="headerlink" title="expression:"></a>expression:</h3><p>输入</p>
+<pre><code class="C++">lxc&gt;
 {
     int i; float x; bool b;
     i = 0;
@@ -609,8 +611,9 @@ L2:
     i = x;
     x = i;
 }
-</code></pre><p>输出</p>
-<pre><code>L1:    i = 0
+</code></pre>
+<p>输出</p>
+<pre><code class="C++">L1:    i = 0
 L3:    i = 365
 L4:    x = 0.0
 L5:    x = 3.1415896
@@ -619,8 +622,9 @@ L7:    b = false
 L8:    i = x
 L9:    x = i
 L2:
-</code></pre><h3 id="identity"><a href="#identity" class="headerlink" title="identity:"></a>identity:</h3><p>输入</p>
-<pre><code>lxc&gt;
+</code></pre>
+<h3 id="identity"><a href="#identity" class="headerlink" title="identity:"></a>identity:</h3><p>输入</p>
+<pre><code class="C++">lxc&gt;
 {
     int i; int j; float[10][10] a;
     i = 0;
@@ -638,8 +642,9 @@ L2:
         i = i + 1;
     }
 }
-</code></pre><p>输出</p>
-<pre><code>L1:    i = 0
+</code></pre>
+<p>输出</p>
+<pre><code class="C++">L1:    i = 0
 L3:    if not i &lt; 10 goto L4
 L5:    j = 0
 L6:    if not j &lt; 10 goto L7
@@ -660,8 +665,9 @@ L11:    t4 = i * 80
 L12:    i = i + 1
     goto L10
 L2:
-</code></pre><h3 id="jump"><a href="#jump" class="headerlink" title="jump:"></a>jump:</h3><p>输入</p>
-<pre><code>lxc&gt;
+</code></pre>
+<h3 id="jump"><a href="#jump" class="headerlink" title="jump:"></a>jump:</h3><p>输入</p>
+<pre><code class="C++">lxc&gt;
 {
     int x; int y; int a; int b;
     if( true ) a = 0;
@@ -680,8 +686,9 @@ L2:
     if( x &gt; 200 &amp;&amp; x != b || x &lt; 100 ) x = 0;
     if( a &lt; 100 || a &gt; 200 &amp;&amp; a != b ) a = 0;
 }
-</code></pre><p>输出</p>
-<pre><code>L1:L4:    a = 0
+</code></pre>
+<p>输出</p>
+<pre><code class="C++">L1:L4:    a = 0
 L3:    goto L5
 L6:    x = 0
 L5:    if not a &lt; b goto L7
@@ -719,8 +726,9 @@ L33:    if a &lt; 100 goto L38
     if not a != b goto L2
 L38:L37:    a = 0
 L2:
-</code></pre><h3 id="program"><a href="#program" class="headerlink" title="program:"></a>program:</h3><p>输入</p>
-<pre><code>lxc&gt;
+</code></pre>
+<h3 id="program"><a href="#program" class="headerlink" title="program:"></a>program:</h3><p>输入</p>
+<pre><code class="C++">lxc&gt;
 {
     int i; int j; float v; float x; float[100] a;
     while( true ) {
@@ -730,8 +738,9 @@ L2:
         x = a[i]; a[i] = a[j]; a[j] = x;
     }
 }
-</code></pre><p>输出</p>
-<pre><code>L1:L3:    i = i + 1
+</code></pre>
+<p>输出</p>
+<pre><code class="C++">L1:L3:    i = i + 1
 L5:    t1 = i * 8
     t2 = a [ t1 ]
     if t2 &lt; v goto L3
@@ -751,7 +760,8 @@ L11:    t9 = j * 8
     a [ t9 ] = x
     goto L1
 L2:
-</code></pre><h1 id="关于BUG、建议与意见"><a href="#关于BUG、建议与意见" class="headerlink" title="关于BUG、建议与意见"></a>关于BUG、建议与意见</h1><p>请在<a href="https://github.com/Great-Li-Xin/LiXinCompiler" target="_blank" rel="noopener">GitHub</a>中提<a href="https://github.com/Great-Li-Xin/LiXinCompiler/issues/new" target="_blank" rel="noopener">issue</a></p>
+</code></pre>
+<h1 id="关于BUG、建议与意见"><a href="#关于BUG、建议与意见" class="headerlink" title="关于BUG、建议与意见"></a>关于BUG、建议与意见</h1><p>请在<a href="https://github.com/Great-Li-Xin/LiXinCompiler" target="_blank" rel="noopener">GitHub</a>中提<a href="https://github.com/Great-Li-Xin/LiXinCompiler/issues/new" target="_blank" rel="noopener">issue</a></p>
 <p>我会尽快回答</p>
 
         
@@ -811,6 +821,14 @@ L2:
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2018/08/16/pkg-py-projs/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -910,7 +928,7 @@ L2:
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -937,7 +955,7 @@ L2:
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">9</span>
+                <span class="sidebar-badge">10</span>
             </a>
         </li>
         

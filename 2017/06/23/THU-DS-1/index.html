@@ -244,7 +244,7 @@
 
     
         <meta property="article:published_time" content="Fri Jun 23 2017 03:54:01 GMT+0800">
-        <meta property="article:modified_time" content="Thu Aug 16 2018 12:27:41 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 16 2018 17:24:07 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -267,7 +267,7 @@
     "mainEntityOfPage": "http://Great-Li-Xin.github.io/2017/06/23/THU-DS-1/index.html",
     "headline": "关于 glibc 中的内置函数 int__bulitin_popcount (unsigned int n) 的实现",
     "datePublished": "Fri Jun 23 2017 03:54:01 GMT+0800",
-    "dateModified": "Thu Aug 16 2018 12:27:41 GMT+0800",
+    "dateModified": "Thu Aug 16 2018 17:24:07 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "李欣",
@@ -536,7 +536,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="关于-glibc-中的内置函数-int-bulitin-popcount-unsigned-int-n-的实现"><a href="#关于-glibc-中的内置函数-int-bulitin-popcount-unsigned-int-n-的实现" class="headerlink" title="关于 glibc 中的内置函数 int__bulitin_popcount (unsigned int n) 的实现"></a>关于 glibc 中的内置函数 int__bulitin_popcount (unsigned int n) 的实现</h1><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>    int countOnes(unsigned int n) { //统计整数二进制展开中数位1的总数：O(logn)
+        <h1 id="关于-glibc-中的内置函数-int-bulitin-popcount-unsigned-int-n-的实现"><a href="#关于-glibc-中的内置函数-int-bulitin-popcount-unsigned-int-n-的实现" class="headerlink" title="关于 glibc 中的内置函数 int__bulitin_popcount (unsigned int n) 的实现"></a>关于 glibc 中的内置函数 int__bulitin_popcount (unsigned int n) 的实现</h1><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code class="C++">    int countOnes(unsigned int n) { //统计整数二进制展开中数位1的总数：O(logn)
         int ones = 0; //计数器复位
         while (0 &lt; n) { //在n缩减至0之前，反复地
             ones += (1 &amp; n); //检查最低位，若为1则计数
@@ -544,7 +544,8 @@
         }
         return ones; //返回计数
     }
-</code></pre><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>考虑如下问题：对于任意非负整数，统计其二进制展开中1的总数。<br><br>该问题的一个算法实现可以如上所示，也可以调用glibc 的内置函数 int__bulitin_popcount (unsigned int n)<br>该算法使用一个计数器ones记录数位1的数目， 其初始值为0。随后进入一个循环:通过二进制 位的与(and)运算，检查n的二进制展开的最 低位，若该位为1则累计至ones。由于每次循环 都将n的二进制展开右移一位，故整体效果等同 于逐个检验所有数位是否为1，该算法的正确性 也不难由此得证。</p>
+</code></pre>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>考虑如下问题：对于任意非负整数，统计其二进制展开中1的总数。<br><br>该问题的一个算法实现可以如上所示，也可以调用glibc 的内置函数 int__bulitin_popcount (unsigned int n)<br>该算法使用一个计数器ones记录数位1的数目， 其初始值为0。随后进入一个循环:通过二进制 位的与(and)运算，检查n的二进制展开的最 低位，若该位为1则累计至ones。由于每次循环 都将n的二进制展开右移一位，故整体效果等同 于逐个检验所有数位是否为1，该算法的正确性 也不难由此得证。</p>
 <h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>根据右移运算的性质，每右移一位，n都至少缩减一半。也就是说，至多经过1 + log2n<br>次循环，n必然缩减至0，从而算法终止。实际上从另一角度来看，1 + log2n恰为n二进制展开 的总位数，每次循环都将其右移一位，总的循环次数自然也应是1 + log2n。后一解释，也可 以从表1.1中n的二进制展开一列清晰地看出。<br>无论是该循环体之前、之内还是之后，均只涉及常数次(逻辑判断、位与运算、加法、右移 等)基本操作。因此，countOnes()算法的执行时间主要由循环的次数决定，亦即:<br>O(1 + log2n) = O(log2n) = O(log2n) 由大O记号定义，在用函数logrn界定渐进复杂度时，常底数r的具体取值无所谓，故通常不予专门标出而笼统地记作logn。比如，尽管此处底数为常数2，却可直接记 作O(logn)。此类算法称作具有“对数时间复杂度”(logarithmic-time algorithm)。</p>
 <h1 id="谢谢"><a href="#谢谢" class="headerlink" title="谢谢"></a>谢谢</h1><p>如果大家觉得这篇博客有帮助，请关注我的GitHub或者收藏本网站，谢谢。</p>
 
@@ -712,7 +713,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -739,7 +740,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">9</span>
+                <span class="sidebar-badge">10</span>
             </a>
         </li>
         

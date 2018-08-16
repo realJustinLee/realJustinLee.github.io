@@ -244,7 +244,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 16 2017 04:00:51 GMT+0800">
-        <meta property="article:modified_time" content="Thu Aug 16 2018 12:52:15 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 16 2018 18:00:17 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -267,7 +267,7 @@
     "mainEntityOfPage": "http://Great-Li-Xin.github.io/2017/08/16/centos-ss/index.html",
     "headline": "CentOS 7 下搭建 Shadowsocks",
     "datePublished": "Wed Aug 16 2017 04:00:51 GMT+0800",
-    "dateModified": "Thu Aug 16 2018 12:52:15 GMT+0800",
+    "dateModified": "Thu Aug 16 2018 18:00:17 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "李欣",
@@ -538,15 +538,21 @@
     
         <h1 id="CentOS-7-搭建-Shadowsocks"><a href="#CentOS-7-搭建-Shadowsocks" class="headerlink" title="CentOS 7 搭建 Shadowsocks"></a>CentOS 7 搭建 Shadowsocks</h1><p>最近老是换VPS，频繁的搭SS。一直都是边查边搭，这里记录一下方便以后使用。</p>
 <p>使用的方法是先安装<code>pip</code>，再安装<code>shdowsocks</code>。</p>
-<h2 id="1-安装-pip"><a href="#1-安装-pip" class="headerlink" title="1. 安装 pip"></a>1. 安装 pip</h2><h3 id="1-1-安装-epel-扩展源"><a href="#1-1-安装-epel-扩展源" class="headerlink" title="1.1 安装 epel 扩展源"></a>1.1 安装 epel 扩展源</h3><pre><code>sudo yum install epel-release
-</code></pre><h3 id="1-2-安装-python-pip"><a href="#1-2-安装-python-pip" class="headerlink" title="1.2 安装 python-pip"></a>1.2 安装 python-pip</h3><pre><code>sudo yum -y install python-pip
-</code></pre><h3 id="1-3-升级-pip"><a href="#1-3-升级-pip" class="headerlink" title="1.3 升级 pip"></a>1.3 升级 pip</h3><p>由于 CentOS 大家都懂的原因，<code>pip</code>的版本不一定是足够新的，所以保险升级一下。</p>
-<pre><code>sudo pip install --upgrade pip
-</code></pre><p>显示<code>Complete!</code>后表示安装成功，最好清除下cache。</p>
-<pre><code>sudo yum clean all
-</code></pre><h2 id="2-安装-Shdowsocks"><a href="#2-安装-Shdowsocks" class="headerlink" title="2. 安装 Shdowsocks"></a>2. 安装 Shdowsocks</h2><pre><code>pip install shadowsocks
-</code></pre><h3 id="2-1-配置服务端口"><a href="#2-1-配置服务端口" class="headerlink" title="2.1 配置服务端口"></a>2.1 配置服务端口</h3><h4 id="新建一个配置文件"><a href="#新建一个配置文件" class="headerlink" title="新建一个配置文件"></a>新建一个配置文件</h4><pre><code>vi /etc/shadowsocks.json
-</code></pre><h4 id="单用户使用输入如下内容："><a href="#单用户使用输入如下内容：" class="headerlink" title="单用户使用输入如下内容："></a>单用户使用输入如下内容：</h4><pre><code>{ 
+<h2 id="1-安装-pip"><a href="#1-安装-pip" class="headerlink" title="1. 安装 pip"></a>1. 安装 pip</h2><h3 id="1-1-安装-epel-扩展源"><a href="#1-1-安装-epel-扩展源" class="headerlink" title="1.1 安装 epel 扩展源"></a>1.1 安装 epel 扩展源</h3><pre><code class="bash">sudo yum install epel-release
+</code></pre>
+<h3 id="1-2-安装-python-pip"><a href="#1-2-安装-python-pip" class="headerlink" title="1.2 安装 python-pip"></a>1.2 安装 python-pip</h3><pre><code class="bash">sudo yum -y install python-pip
+</code></pre>
+<h3 id="1-3-升级-pip"><a href="#1-3-升级-pip" class="headerlink" title="1.3 升级 pip"></a>1.3 升级 pip</h3><p>由于 CentOS 大家都懂的原因，<code>pip</code>的版本不一定是足够新的，所以保险升级一下。</p>
+<pre><code class="bash">sudo pip install --upgrade pip
+</code></pre>
+<p>显示<code>Complete!</code>后表示安装成功，最好清除下cache。</p>
+<pre><code class="bash">sudo yum clean all
+</code></pre>
+<h2 id="2-安装-Shdowsocks"><a href="#2-安装-Shdowsocks" class="headerlink" title="2. 安装 Shdowsocks"></a>2. 安装 Shdowsocks</h2><pre><code class="bash">pip install shadowsocks
+</code></pre>
+<h3 id="2-1-配置服务端口"><a href="#2-1-配置服务端口" class="headerlink" title="2.1 配置服务端口"></a>2.1 配置服务端口</h3><h4 id="新建一个配置文件"><a href="#新建一个配置文件" class="headerlink" title="新建一个配置文件"></a>新建一个配置文件</h4><pre><code class="bash">vi /etc/shadowsocks.json
+</code></pre>
+<h4 id="单用户使用输入如下内容："><a href="#单用户使用输入如下内容：" class="headerlink" title="单用户使用输入如下内容："></a>单用户使用输入如下内容：</h4><pre><code class="json">{ 
    &quot;server&quot;:&quot;server_ip&quot;, 
    &quot;server_port&quot;:25, 
    &quot;local_address&quot;: &quot;127.0.0.1&quot;, 
@@ -556,7 +562,8 @@
    &quot;method&quot;:&quot;aes-256-cfb&quot;, 
    &quot;fast_open&quot;: false 
 }
-</code></pre><h4 id="多用户支持可以如下设置："><a href="#多用户支持可以如下设置：" class="headerlink" title="多用户支持可以如下设置："></a>多用户支持可以如下设置：</h4><pre><code>{
+</code></pre>
+<h4 id="多用户支持可以如下设置："><a href="#多用户支持可以如下设置：" class="headerlink" title="多用户支持可以如下设置："></a>多用户支持可以如下设置：</h4><pre><code class="json">{
     &quot;server&quot;:&quot;server_ip&quot;,
     &quot;port_password&quot;:{
         &quot;port_1&quot;:&quot;pwd1&quot;,
@@ -568,14 +575,16 @@
     &quot;timeout&quot;:300,
     &quot;method&quot;:&quot;aes-256-cfb&quot;
 }
-</code></pre><h4 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h4><p>主要需要设置 <code>server_ip</code> 、 <code>port</code> 和 <code>password</code> 三项，设置好后保存退出。</p>
+</code></pre>
+<h4 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h4><p>主要需要设置 <code>server_ip</code> 、 <code>port</code> 和 <code>password</code> 三项，设置好后保存退出。</p>
 <ul>
 <li><code>server_ip</code> 填写你服务器的公网IP地址</li>
 <li><code>port</code> 填写你想设置的SS端口</li>
 <li><code>password</code> 填写你想设置的SS密码</li>
 </ul>
-<h3 id="2-2-启动-Shadowsocks"><a href="#2-2-启动-Shadowsocks" class="headerlink" title="2.2 启动 Shadowsocks"></a>2.2 启动 Shadowsocks</h3><h4 id="最好将其设置成服务启动。"><a href="#最好将其设置成服务启动。" class="headerlink" title="最好将其设置成服务启动。"></a>最好将其设置成服务启动。</h4><pre><code>vi /etc/systemd/system/shadowsocks.service
-</code></pre><h4 id="然后输入以下内容："><a href="#然后输入以下内容：" class="headerlink" title="然后输入以下内容："></a>然后输入以下内容：</h4><pre><code>[Unit]
+<h3 id="2-2-启动-Shadowsocks"><a href="#2-2-启动-Shadowsocks" class="headerlink" title="2.2 启动 Shadowsocks"></a>2.2 启动 Shadowsocks</h3><h4 id="最好将其设置成服务启动。"><a href="#最好将其设置成服务启动。" class="headerlink" title="最好将其设置成服务启动。"></a>最好将其设置成服务启动。</h4><pre><code class="bash">vi /etc/systemd/system/shadowsocks.service
+</code></pre>
+<h4 id="然后输入以下内容："><a href="#然后输入以下内容：" class="headerlink" title="然后输入以下内容："></a>然后输入以下内容：</h4><pre><code class="json">[Unit]
 Description=Shadowsocks
 
 [Service]
@@ -584,13 +593,18 @@ ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
 
 [Install]
 WantedBy=multi-user.target
-</code></pre><h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><pre><code>systemctl enable shadowsocks
+</code></pre>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><pre><code class="bash">systemctl enable shadowsocks
 systemctl start shadowsocks
-</code></pre><h4 id="查看服务是否启动成功："><a href="#查看服务是否启动成功：" class="headerlink" title="查看服务是否启动成功："></a>查看服务是否启动成功：</h4><pre><code>systemctl status shadowsocks -l
-</code></pre><h4 id="如需要停止服务使用："><a href="#如需要停止服务使用：" class="headerlink" title="如需要停止服务使用："></a>如需要停止服务使用：</h4><pre><code>systemctl stop shadowsocks
-</code></pre><h3 id="2-3-开启防火墙端口"><a href="#2-3-开启防火墙端口" class="headerlink" title="2.3 开启防火墙端口"></a>2.3 开启防火墙端口</h3><h4 id="如果没设置防火墙端口开启，可能不能访问到该端口服务。"><a href="#如果没设置防火墙端口开启，可能不能访问到该端口服务。" class="headerlink" title="如果没设置防火墙端口开启，可能不能访问到该端口服务。"></a>如果没设置防火墙端口开启，可能不能访问到该端口服务。</h4><p>以端口<code>12345</code>为例</p>
-<pre><code>firewall-cmd --zone=public --add-port=12345/tcp --permanent
-</code></pre><h2 id="3-加速"><a href="#3-加速" class="headerlink" title="3.加速"></a>3.加速</h2><p>加速可以选择用Kcptun或者BBR，这里就不赘述了。</p>
+</code></pre>
+<h4 id="查看服务是否启动成功："><a href="#查看服务是否启动成功：" class="headerlink" title="查看服务是否启动成功："></a>查看服务是否启动成功：</h4><pre><code class="bash">systemctl status shadowsocks -l
+</code></pre>
+<h4 id="如需要停止服务使用："><a href="#如需要停止服务使用：" class="headerlink" title="如需要停止服务使用："></a>如需要停止服务使用：</h4><pre><code class="bash">systemctl stop shadowsocks
+</code></pre>
+<h3 id="2-3-开启防火墙端口"><a href="#2-3-开启防火墙端口" class="headerlink" title="2.3 开启防火墙端口"></a>2.3 开启防火墙端口</h3><h4 id="如果没设置防火墙端口开启，可能不能访问到该端口服务。"><a href="#如果没设置防火墙端口开启，可能不能访问到该端口服务。" class="headerlink" title="如果没设置防火墙端口开启，可能不能访问到该端口服务。"></a>如果没设置防火墙端口开启，可能不能访问到该端口服务。</h4><p>以端口<code>12345</code>为例</p>
+<pre><code class="bash">firewall-cmd --zone=public --add-port=12345/tcp --permanent
+</code></pre>
+<h2 id="3-加速"><a href="#3-加速" class="headerlink" title="3.加速"></a>3.加速</h2><p>加速可以选择用Kcptun或者BBR，这里就不赘述了。</p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -756,7 +770,7 @@ systemctl start shadowsocks
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -783,7 +797,7 @@ systemctl start shadowsocks
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">9</span>
+                <span class="sidebar-badge">10</span>
             </a>
         </li>
         

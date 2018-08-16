@@ -244,7 +244,7 @@
 
     
         <meta property="article:published_time" content="Sun Apr 09 2017 14:09:18 GMT+0800">
-        <meta property="article:modified_time" content="Wed Aug 15 2018 17:21:03 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 16 2018 18:00:14 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -267,7 +267,7 @@
     "mainEntityOfPage": "http://Great-Li-Xin.github.io/2017/04/09/Apache-VS-Nginx/index.html",
     "headline": "Apache与Nginx的优缺点比较",
     "datePublished": "Sun Apr 09 2017 14:09:18 GMT+0800",
-    "dateModified": "Wed Aug 15 2018 17:21:03 GMT+0800",
+    "dateModified": "Thu Aug 16 2018 18:00:14 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "李欣",
@@ -537,13 +537,34 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h1 id="Apache与Nginx的优缺点比较"><a href="#Apache与Nginx的优缺点比较" class="headerlink" title="Apache与Nginx的优缺点比较"></a>Apache与Nginx的优缺点比较</h1><p>很多同学在搭建自己的 WEB 服务器的时候面对 Apache 和 Nginx 这两大引擎感到强烈的无所适从感，下面我将在这篇博客里详细对比 Ngiinx 与 Apache 的不同之处。</p>
-<h2 id="一、首先笼统地比较一下两家的优缺点"><a href="#一、首先笼统地比较一下两家的优缺点" class="headerlink" title="一、首先笼统地比较一下两家的优缺点"></a>一、首先笼统地比较一下两家的优缺点</h2><h3 id="1、Nginx-相对于-Apache-的优点："><a href="#1、Nginx-相对于-Apache-的优点：" class="headerlink" title="1、Nginx 相对于 Apache 的优点："></a>1、Nginx 相对于 Apache 的优点：</h3><p>[ 1 ] 轻量级，同样起 WEB 服务，比 Apache 占用更少的内存及资源<br><br>[ 2 ] 抗并发，Nginx 处理请求是异步非阻塞的，而 Apache 则是阻塞型的，在高并发下 Nginx 能保持低资源低消耗高性能<br><br>[ 3 ] 高度模块化的设计，编写模块相对简单<br><br>[ 4 ] 社区活跃，各种高性能模块出品迅速啊<br></p>
-<h3 id="2、Apache-相对于-Nginx-的优点："><a href="#2、Apache-相对于-Nginx-的优点：" class="headerlink" title="2、Apache 相对于 Nginx 的优点："></a>2、Apache 相对于 Nginx 的优点：</h3><p>[ 1 ] rewrite ，比 Nginx 的 rewrite 强大<br><br>[ 2 ] 模块超多，基本想到的都可以找到<br><br>[ 3 ] 少 bug ，Nginx 的 bug 相对较多<br><br>[ 4 ] 超稳定<br></p>
+<h2 id="一、首先笼统地比较一下两家的优缺点"><a href="#一、首先笼统地比较一下两家的优缺点" class="headerlink" title="一、首先笼统地比较一下两家的优缺点"></a>一、首先笼统地比较一下两家的优缺点</h2><h3 id="1、Nginx-相对于-Apache-的优点："><a href="#1、Nginx-相对于-Apache-的优点：" class="headerlink" title="1、Nginx 相对于 Apache 的优点："></a>1、Nginx 相对于 Apache 的优点：</h3><p>[ 1 ] 轻量级，同样起 WEB 服务，比 Apache 占用更少的内存及资源</p>
+<p>[ 2 ] 抗并发，Nginx 处理请求是异步非阻塞的，而 Apache 则是阻塞型的，在高并发下 Nginx 能保持低资源低消耗高性能</p>
+<p>[ 3 ] 高度模块化的设计，编写模块相对简单</p>
+<p>[ 4 ] 社区活跃，各种高性能模块出品迅速啊</p>
+<h3 id="2、Apache-相对于-Nginx-的优点："><a href="#2、Apache-相对于-Nginx-的优点：" class="headerlink" title="2、Apache 相对于 Nginx 的优点："></a>2、Apache 相对于 Nginx 的优点：</h3><p>[ 1 ] rewrite ，比 Nginx 的 rewrite 强大</p>
+<p>[ 2 ] 模块超多，基本想到的都可以找到</p>
+<p>[ 3 ] 少 bug ，Nginx 的 bug 相对较多</p>
+<p>[ 4 ] 超稳定</p>
 <h3 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h3><p>存在就是理由，一般来说，需要性能的 WEB 服务，用 Nginx 。如果不需要性能只求稳定，那就 Apache 吧。后者的各种功能模块实现得比前者，例如 ssl 的模块就比前者好，可配置项多。这里要注意一点，epoll(freebsd 上是 kqueue )网络 IO 模型是 Nginx 处理性能高的根本理由，但并不是所有的情况下都是 epoll 大获全胜的，如果本身提供静态服务的就只有寥寥几个文件，Apache 的 select 模型或许比 epoll 更高性能。当然，这只是根据网络 IO 模型的原理作的一个假设，真正的应用还是需要实测了再说的。</p>
-<h2 id="二、资源和负载与程序员友好性"><a href="#二、资源和负载与程序员友好性" class="headerlink" title="二、资源和负载与程序员友好性"></a>二、资源和负载与程序员友好性</h2><h3 id="1、资源和负载"><a href="#1、资源和负载" class="headerlink" title="1、资源和负载"></a>1、资源和负载</h3><p>作为 Web 服务器：相比 Apache，Nginx 使用更少的资源，支持更多的并发连接，体现更高的效率，这点使 Nginx 尤其受到虚拟主机提供商的欢迎。在高连接并发的情况下，Nginx 是 Apache 服务器不错的替代品: Nginx在美国是做虚拟主机生意的老板们经常选择的软件平台之一。 能够支持高达 50,000 个并发连接数的响应, 感谢Nginx为我们选择了 epoll and kqueue 作为开发模型。<br><br>Nginx作为负载均衡服务器: Nginx 既可以在内部直接支持 Rails 和 PHP 程序对外进行服务, 也可以支持作为 HTTP代理 服务器对外进行服务. Nginx采用C进行编写, 不论是系统资源开销还是CPU使用效率都比 Perlbal 要好很多。<br><br>作为邮件代理服务器: Nginx 同时也是一个非常优秀的邮件代理服务器（最早开发这个产品的目的之一也是作为邮件代理服务器）, Last.fm 描述了成功并且美妙的使用经验。<br><br>Nginx 是一个安装非常的简单 , 配置文件非常简洁（还能够支持perl语法）, Bugs 非常少的服务器: Nginx 启动特别容易, 并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动. 你还能够不间断服务的情况下进行软件版本的升级。</p>
-<h3 id="2、资源和负载"><a href="#2、资源和负载" class="headerlink" title="2、资源和负载"></a>2、资源和负载</h3><p>[ 1 ]Nginx 配置简洁, Apache 复杂<br><br>[ 2 ]Nginx 静态处理性能比 Apache 高 3倍以上<br><br>[ 3 ]Apache 对 PHP 支持比较简单，Nginx 需要配合其他后端用<br><br>[ 4 ]Apache 的组件比 Nginx 多<br><br>[注] 现在 Nginx 才是 Web 服务器的首选</p>
+<h2 id="二、资源和负载与程序员友好性"><a href="#二、资源和负载与程序员友好性" class="headerlink" title="二、资源和负载与程序员友好性"></a>二、资源和负载与程序员友好性</h2><h3 id="1、资源和负载"><a href="#1、资源和负载" class="headerlink" title="1、资源和负载"></a>1、资源和负载</h3><p>作为 Web 服务器：相比 Apache，Nginx 使用更少的资源，支持更多的并发连接，体现更高的效率，这点使 Nginx 尤其受到虚拟主机提供商的欢迎。在高连接并发的情况下，Nginx 是 Apache 服务器不错的替代品: Nginx在美国是做虚拟主机生意的老板们经常选择的软件平台之一。 能够支持高达 50,000 个并发连接数的响应, 感谢Nginx为我们选择了 epoll and kqueue 作为开发模型。</p>
+<p>Nginx作为负载均衡服务器: Nginx 既可以在内部直接支持 Rails 和 PHP 程序对外进行服务, 也可以支持作为 HTTP代理 服务器对外进行服务. Nginx采用C进行编写, 不论是系统资源开销还是CPU使用效率都比 Perlbal 要好很多。</p>
+<p>作为邮件代理服务器: Nginx 同时也是一个非常优秀的邮件代理服务器（最早开发这个产品的目的之一也是作为邮件代理服务器）, Last.fm 描述了成功并且美妙的使用经验。</p>
+<p>Nginx 是一个安装非常的简单 , 配置文件非常简洁（还能够支持perl语法）, Bugs 非常少的服务器: Nginx 启动特别容易, 并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动. 你还能够不间断服务的情况下进行软件版本的升级。</p>
+<h3 id="2、资源和负载"><a href="#2、资源和负载" class="headerlink" title="2、资源和负载"></a>2、资源和负载</h3><p>[ 1 ]Nginx 配置简洁, Apache 复杂</p>
+<p>[ 2 ]Nginx 静态处理性能比 Apache 高 3倍以上</p>
+<p>[ 3 ]Apache 对 PHP 支持比较简单，Nginx 需要配合其他后端用</p>
+<p>[ 4 ]Apache 的组件比 Nginx 多</p>
+<p>[注] 现在 Nginx 才是 Web 服务器的首选</p>
 <h2 id="三、Nginx优于apache的主要两点："><a href="#三、Nginx优于apache的主要两点：" class="headerlink" title="三、Nginx优于apache的主要两点："></a>三、Nginx优于apache的主要两点：</h2><h3 id="1、Nginx本身就是一个反向代理服务器"><a href="#1、Nginx本身就是一个反向代理服务器" class="headerlink" title="1、Nginx本身就是一个反向代理服务器"></a>1、Nginx本身就是一个反向代理服务器</h3><h3 id="2、Nginx支持7层负载均衡"><a href="#2、Nginx支持7层负载均衡" class="headerlink" title="2、Nginx支持7层负载均衡"></a>2、Nginx支持7层负载均衡</h3><p>其他的当然，Nginx 可能会比 Apache 支持更高的并发，但是根据 NetCraft 的统计，2011年4月的统计数据，Apache 依然占有62.71%，而 Nginx 是7.35%，因此总得来说，Aapche 依然是大部分公司的首先，因为其成熟的技术和开发社区已经也是非常不错的性能。</p>
-<h2 id="四、其他"><a href="#四、其他" class="headerlink" title="四、其他"></a>四、其他</h2><p>[ 1 ]最核心的区别在于 Apache 是同步多进程模型，一个连接对应一个进程；Nginx 是异步的，多个连接（万级别）可以对应一个进程<br><br>[ 2 ]Nginx 处理静态文件好，耗费内存少。但无疑 Apache 仍然是目前的主流，有很多丰富的特性。所以还需要搭配着来。当然如果能确定 Nginx 就适合需求，那么使用 Nginx 会是更经济的方式。<br><br>[ 3 ]从个人过往的使用情况来看，Nginx 的负载能力比 Apache 高很多。最新的服务器也改用 Nginx 了。而且 Nginx 改完配置能-t测试一下配置有没有问题，Apache 重启的时候发现配置出错了，会很崩溃，改的时候都会非常小心翼翼现在看有好多集群站，前端 Nginx 抗并发，后端 Apache 集群，配合的也不错。<br><br>[ 4 ]Nginx 处理动态请求是鸡肋，一般动态请求要 Apache 去做，Nginx 只适合静态和反向。<br><br>[ 5 ]从我个人的经验来看，Nginx 是很不错的前端服务器，负载性能很好，在老奔上开 Nginx，用 Webbench 模拟10000个静态文件请求毫不吃力。Apache 对 php 等语言的支持很好，此外 Apache 有强大的支持网络，发展时间相对 Nginx 更久，bug 少但是 Apache 有先天不支持多核心处理负载鸡肋的缺点，建议使用 Nginx 做前端，后端用 Apache。大型网站建议用 Nginx 自带的集群功能<br><br>[ 6 ]你对 WEB 服务器的需求决定你的选择。大部分情况下 Nginx 都优于 Apache，比如说静态文件处理、PHP-CGI的支持、反向代理功能、前端 Cache、维持连接等等。在 Apache+PHP（prefork）模式下，如果 PHP 处理慢或者前端压力很大的情况下，很容易出现 Apache 进程数飙升，从而拒绝服务的现象。<br><br>[ 7 ]可以看一下 Nginx lua模块。Apache 比 Nginx 多的模块，可直接用 lua 实现 Apache 是最流行的，Why？大多数人懒得更新到 Nginx 或者学新事物<br><br>[ 8 ]对于 Nginx，我喜欢它配置文件写的很简洁，正则配置让很多事情变得简单运行效率高，占用资源少，代理功能强大，很适合做前端响应服务器<br><br>[ 9 ]Apache 在处理动态有优势，Nginx 并发性比较好，CPU 内存占用低，如果 rewrite 频繁，那还是 Apache 吧</p>
+<h2 id="四、其他"><a href="#四、其他" class="headerlink" title="四、其他"></a>四、其他</h2><p>[ 1 ]最核心的区别在于 Apache 是同步多进程模型，一个连接对应一个进程；Nginx 是异步的，多个连接（万级别）可以对应一个进程</p>
+<p>[ 2 ]Nginx 处理静态文件好，耗费内存少。但无疑 Apache 仍然是目前的主流，有很多丰富的特性。所以还需要搭配着来。当然如果能确定 Nginx 就适合需求，那么使用 Nginx 会是更经济的方式。</p>
+<p>[ 3 ]从个人过往的使用情况来看，Nginx 的负载能力比 Apache 高很多。最新的服务器也改用 Nginx 了。而且 Nginx 改完配置能-t测试一下配置有没有问题，Apache 重启的时候发现配置出错了，会很崩溃，改的时候都会非常小心翼翼现在看有好多集群站，前端 Nginx 抗并发，后端 Apache 集群，配合的也不错。</p>
+<p>[ 4 ]Nginx 处理动态请求是鸡肋，一般动态请求要 Apache 去做，Nginx 只适合静态和反向。</p>
+<p>[ 5 ]从我个人的经验来看，Nginx 是很不错的前端服务器，负载性能很好，在老奔上开 Nginx，用 Webbench 模拟10000个静态文件请求毫不吃力。Apache 对 php 等语言的支持很好，此外 Apache 有强大的支持网络，发展时间相对 Nginx 更久，bug 少但是 Apache 有先天不支持多核心处理负载鸡肋的缺点，建议使用 Nginx 做前端，后端用 Apache。大型网站建议用 Nginx 自带的集群功能</p>
+<p>[ 6 ]你对 WEB 服务器的需求决定你的选择。大部分情况下 Nginx 都优于 Apache，比如说静态文件处理、PHP-CGI的支持、反向代理功能、前端 Cache、维持连接等等。在 Apache+PHP（prefork）模式下，如果 PHP 处理慢或者前端压力很大的情况下，很容易出现 Apache 进程数飙升，从而拒绝服务的现象。</p>
+<p>[ 7 ]可以看一下 Nginx lua模块。Apache 比 Nginx 多的模块，可直接用 lua 实现 Apache 是最流行的，Why？大多数人懒得更新到 Nginx 或者学新事物</p>
+<p>[ 8 ]对于 Nginx，我喜欢它配置文件写的很简洁，正则配置让很多事情变得简单运行效率高，占用资源少，代理功能强大，很适合做前端响应服务器</p>
+<p>[ 9 ]Apache 在处理动态有优势，Nginx 并发性比较好，CPU 内存占用低，如果 rewrite 频繁，那还是 Apache 吧</p>
 <h1 id="谢谢"><a href="#谢谢" class="headerlink" title="谢谢"></a>谢谢</h1><p>如果大家觉得这篇博客有帮助，请关注我的GitHub或者收藏本网站，谢谢。</p>
 
         
@@ -710,7 +731,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -737,7 +758,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">9</span>
+                <span class="sidebar-badge">10</span>
             </a>
         </li>
         
